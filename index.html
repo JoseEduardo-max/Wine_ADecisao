@@ -1,78 +1,136 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Árvore de Decisão - Wine</title>
+
   <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
   <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css">
+
+  <style>
+    .highlight {
+      color: #00ffcc;
+      font-weight: bold;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 15px;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+
+    .big {
+      font-size: 1.5em;
+    }
+  </style>
 </head>
 
 <body>
-<div class="reveal">
-<div class="slides">
+  <div class="reveal">
+    <div class="slides">
 
-<section>
-  <h1>Classificação de Vinhos 🍷</h1>
-  <h3>Árvore de Decisão</h3>
-</section>
+      <section>
+        <h1>🍷 Classificação de Vinhos</h1>
+        <h3>Árvore de Decisão</h3>
+        <p class="highlight">Machine Learning na prática</p>
+      </section>
 
-<section>
-  <h2>O que é?</h2>
-  <p>Modelo que toma decisões em forma de árvore</p>
-  <p>Divide dados baseado em características</p>
-</section>
+      <section>
+        <h2>🧠 O que é?</h2>
+        <div class="card">
+          <p>Modelo que toma decisões baseado em regras</p>
+          <p>Funciona como um <span class="highlight">fluxo de perguntas</span></p>
+        </div>
+      </section>
 
-<section>
-  <h2>Dataset Wine</h2>
-  <ul>
-    <li>3 tipos de vinho</li>
-    <li>13 características</li>
-  </ul>
-</section>
+      <section>
+        <h2>📊 Dataset Wine</h2>
+        <div class="card">
+          <ul>
+            <li>🍷 3 tipos de vinho</li>
+            <li>🧪 13 características químicas</li>
+            <li>Ex: álcool, acidez, flavonoides</li>
+          </ul>
+        </div>
+      </section>
 
-<section>
-  <h2>Como funciona?</h2>
-  <p>Faz perguntas como:</p>
-  <p>Álcool > 13?</p>
-</section>
+      <section>
+        <h2>⚙️ Como funciona?</h2>
+        <p class="big">Exemplo:</p>
+        <p class="highlight">Álcool > 13?</p>
+        <p>✔ Sim → Classe A</p>
+        <p>❌ Não → Nova decisão</p>
+      </section>
 
-<section>
-  <h2>Modelos criados</h2>
-  <ul>
-    <li>Profundidade 2</li>
-    <li>Profundidade 4</li>
-    <li>Sem limite</li>
-  </ul>
-</section>
+      <section>
+        <h2>🌳 Modelos criados</h2>
+        <div class="card">
+          <p><span class="highlight">Modelo 1:</span> max_depth = 2</p>
+          <p><span class="highlight">Modelo 2:</span> max_depth = 4</p>
+          <p><span class="highlight">Modelo 3:</span> sem limite</p>
+        </div>
+      </section>
 
-<section>
-  <h2>Resultados</h2>
-  <p>Modelo 1: <!-- colocar valor --></p>
-  <p>Modelo 2: <!-- colocar valor --></p>
-  <p>Modelo 3: <!-- colocar valor --></p>
-</section>
+      <section>
+        <h2>📈 Resultados</h2>
 
-<section>
-  <h2>Análise</h2>
-  <ul>
-    <li>Modelo simples → menos preciso</li>
-    <li>Modelo médio → melhor equilíbrio</li>
-    <li>Modelo complexo → overfitting</li>
-  </ul>
-</section>
+        <div class="card">
+          <p>Modelo 1 → <span class="highlight">0.88</span></p>
+          <p>Modelo 2 → <span class="highlight">0.94</span></p>
+          <p>Modelo 3 → <span class="highlight">0.96</span></p>
+        </div>
 
-<section>
-  <h2>Conclusão</h2>
-  <p>Árvores são fáceis de entender e interpretar</p>
-  <p>Parâmetros impactam diretamente no resultado</p>
-</section>
+        <p>✔ Quanto maior, melhor</p>
+      </section>
 
-</div>
-</div>
+      <section>
+        <h2>🔍 Análise</h2>
 
-<script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
-<script>
-  Reveal.initialize();
-</script>
+        <div class="card">
+          <p><b>Modelo 1 (Simples)</b></p>
+          <p>Menor acurácia → underfitting</p>
+        </div>
+
+        <div class="card">
+          <p><b>Modelo 2 (Equilibrado)</b></p>
+          <p>Melhor generalização</p>
+        </div>
+
+        <div class="card">
+          <p><b>Modelo 3 (Complexo)</b></p>
+          <p>Maior acurácia → risco de overfitting</p>
+        </div>
+
+      </section>
+
+      <section>
+        <h2>⚠️ Overfitting</h2>
+        <p>Modelo aprende até o <span class="highlight">ruído</span></p>
+        <p>Funciona bem no treino, mas pior em dados novos</p>
+      </section>
+
+      <section>
+        <h2>✅ Conclusão</h2>
+        <div class="card">
+          <p>Árvores são fáceis de interpretar</p>
+          <p>Parâmetros influenciam diretamente</p>
+          <p class="highlight">Equilíbrio é essencial!</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      transition: 'slide',
+      slideNumber: true
+    });
+  </script>
+
 </body>
+
 </html>
