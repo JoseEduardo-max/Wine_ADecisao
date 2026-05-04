@@ -7,36 +7,21 @@
 
   <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
   <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css">
-
-  <style>
-    .highlight {
-      color: #00ffcc;
-      font-weight: bold;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 15px;
-      border-radius: 10px;
-      margin: 10px 0;
-    }
-
-    .big {
-      font-size: 1.5em;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
   <div class="reveal">
     <div class="slides">
 
+      <!-- SLIDE 1 -->
       <section>
         <h1>🍷 Classificação de Vinhos</h1>
         <h3>Árvore de Decisão</h3>
         <p class="highlight">Machine Learning na prática</p>
       </section>
 
+      <!-- SLIDE 2 -->
       <section>
         <h2>🧠 O que é?</h2>
         <div class="card">
@@ -45,6 +30,7 @@
         </div>
       </section>
 
+      <!-- SLIDE 3 -->
       <section>
         <h2>📊 Dataset Wine</h2>
         <div class="card">
@@ -56,6 +42,7 @@
         </div>
       </section>
 
+      <!-- SLIDE 4 -->
       <section>
         <h2>⚙️ Como funciona?</h2>
         <p class="big">Exemplo:</p>
@@ -65,6 +52,16 @@
       </section>
 
       <section>
+        <!-- IMAGEM COM CLICK -->
+        <div class="image-row">
+          <a href="https://github.com/JoseEduardo-max/Wine_Sklearn/blob/main/index.py" target="_blank">
+            <img src="img/codeWine.png">
+          </a>
+        </div>
+      </section>
+
+      <!-- SLIDE 5 -->
+      <section>
         <h2>🌳 Modelos criados</h2>
         <div class="card">
           <p><span class="highlight">Modelo 1:</span> max_depth = 2</p>
@@ -73,6 +70,7 @@
         </div>
       </section>
 
+      <!-- SLIDE 6 -->
       <section>
         <h2>📈 Resultados</h2>
 
@@ -85,6 +83,7 @@
         <p>✔ Quanto maior, melhor</p>
       </section>
 
+      <!-- SLIDE 7 -->
       <section>
         <h2>🔍 Análise</h2>
 
@@ -102,15 +101,25 @@
           <p><b>Modelo 3 (Complexo)</b></p>
           <p>Maior acurácia → risco de overfitting</p>
         </div>
-
       </section>
 
       <section>
-        <h2>⚠️ Overfitting</h2>
-        <p>Modelo aprende até o <span class="highlight">ruído</span></p>
-        <p>Funciona bem no treino, mas pior em dados novos</p>
+        <!-- IMAGEM COM CLICK -->
+        <div class="image-row">
+          <img src="img/exeplicação dos modelos.png" onclick="openModal('img2')">
+        </div>
       </section>
 
+      <!-- SLIDE 8 -->
+      <section>
+        <h2>⚠️ Overfitting</h2>
+        <div class="card">
+          <p>Modelo aprende até o <span class="highlight">ruído</span></p>
+          <p>Funciona bem no treino, mas pior em dados novos</p>
+        </div>
+      </section>
+
+      <!-- SLIDE 9 -->
       <section>
         <h2>✅ Conclusão</h2>
         <div class="card">
@@ -123,11 +132,37 @@
     </div>
   </div>
 
+  <!-- MODAIS -->
+  <div id="img2" class="modal" onclick="closeModal(event)">
+    <img src="img/exeplicação dos modelos.png">
+  </div>
+
   <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+
   <script>
     Reveal.initialize({
       transition: 'slide',
       slideNumber: true
+    });
+
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.add("active");
+      Reveal.configure({ keyboard: false });
+    }
+
+    function closeModal(event) {
+      if (event.target.classList.contains("modal")) {
+        event.target.classList.remove("active");
+        Reveal.configure({ keyboard: true });
+      }
+    }
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        document.querySelectorAll(".modal").forEach(m => m.classList.remove("active"));
+        Reveal.configure({ keyboard: true });
+      }
     });
   </script>
 
